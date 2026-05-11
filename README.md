@@ -17,14 +17,14 @@ It allows users to create, read, update, and delete posts after logging in.
 
 ## Features　仕様
 
-* User registration and login
+* User registration and login (unique user)
 * Create posts
 * View post list
 * Edit posts
 * Delete posts
 * Only the author can edit or delete their own posts
 
-* ユーザー認証とログイン
+* ユーザー認証とログイン （ユーザー名重複禁止）
 * 投稿作成
 * 掲示板閲覧
 * 投稿編集・削除

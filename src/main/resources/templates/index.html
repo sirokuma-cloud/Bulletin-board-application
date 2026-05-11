@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Posts</title>
+</head>
+<body>
+
+<h1>Posts</h1>
+
+<!-- 新規投稿リンク -->
+<a href="/posts/new">
+    Create New Post
+</a>
+
+<hr>
+
+<!-- 投稿一覧 -->
+<div th:each="post : ${posts}">
+
+    <!-- タイトル -->
+    <h2 th:text="${post.title}"></h2>
+
+    <!-- 内容 -->
+    <p th:text="${post.content}"></p>
+
+    <!-- 投稿者 -->
+    <p>
+        Author:
+        <span th:text="${post.user.username}"></span>
+    </p>
+
+    <!-- 投稿者本人だけ表示 -->
+    <div th:if="${#authentication.name == post.user.username}">
+
+        <!-- 編集 -->
+        <a th:href="@{/posts/edit/{id}(id=${post.id})}">
+            Edit
+        </a>
+
+        <!-- 削除 -->
+        <form th:action="@{/posts/delete/{id}(id=${post.id})}"
+              method="post">
+
+            <button type="submit">
+                Delete
+            </button>
+
+        </form>
+
+    </div>
+
+    <hr>
+
+</div>
+
+</body>
+</html>

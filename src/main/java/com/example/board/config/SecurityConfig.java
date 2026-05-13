@@ -15,14 +15,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(
-            HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/register",
-                                "/login"
+                                "/login",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
@@ -33,6 +35,7 @@ public class SecurityConfig {
                 )
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login")
+                        .permitAll()
                 );
 
         return http.build();

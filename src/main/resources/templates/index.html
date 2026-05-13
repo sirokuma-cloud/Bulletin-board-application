@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Posts</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<h1>Posts</h1>
+<div class="container">
+    <h1>Posts</h1>
 
-<!-- 新規投稿リンク -->
-<a href="/posts/new">
-    Create New Post
-</a>
-
-<hr>
-
-<!-- 投稿一覧 -->
-<div th:each="post : ${posts}">
-
-    <!-- タイトル -->
-    <h2 th:text="${post.title}"></h2>
-
-    <!-- 内容 -->
-    <p th:text="${post.content}"></p>
-
-    <!-- 投稿者 -->
-    <p>
-        Author:
-        <span th:text="${post.user.username}"></span>
-    </p>
-
-    <!-- 投稿者本人だけ表示 -->
-    <div th:if="${#authentication.name == post.user.username}">
-
-        <!-- 編集 -->
-        <a th:href="@{/posts/edit/{id}(id=${post.id})}">
-            Edit
-        </a>
-
-        <!-- 削除 -->
-        <form th:action="@{/posts/delete/{id}(id=${post.id})}"
-              method="post">
-
-            <button type="submit">
-                Delete
-            </button>
-
-        </form>
-
-    </div>
+    <!-- 新規投稿リンク -->
+    <a class="btn" th:href="@{/posts/new}">Create New Post</a>
 
     <hr>
 
+    <!-- 投稿一覧 -->
+    <div th:each="post : ${posts}" class="post-card">
+
+        <!-- タイトル -->
+        <div class="post-title" th:text="${post.title}"></div>
+
+        <!-- 内容 -->
+        <div class="post-content" th:text="${post.content}"></div>
+
+        <!-- 投稿者 -->
+        <div class="post-meta">
+            Author:
+            <span th:text="${post.user != null ? post.user.username : 'Unknown'}"></span>
+        </div>
+
+        <!-- 投稿者本人だけ編集・削除を表示 -->
+        <div th:if="${post.user != null and #authentication.name == post.user.username}">
+
+            <!-- 編集 -->
+            <a class="btn" th:href="@{/posts/edit/{id}(id=${post.id})}">
+                Edit
+            </a>
+
+            <!-- 削除 -->
+            <form th:action="@{/posts/delete/{id}(id=${post.id})}" method="post" style="display:inline;">
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+
+        </div>
+
+    </div>
 </div>
 
 </body>

@@ -123,15 +123,13 @@ This project was built to practice backend development, including authentication
 
 ## How to Run / 実行方法
 
-```bash
-git clone https://github.com/sirokuma-cloud/bulletin-board-application.git
-cd bulletin-board-application
+*```bash
+git clone https://github.com/sirokuma-cloud/Bulletin-board-application.git
+cd Bulletin-board-application
 ./mvnw spring-boot:run
-
-Access the application at:http://localhost:8080
 
 ## Development Challenges / 苦労した点
 
-- Spring Security導入後、ログインユーザーと投稿者情報の紐付けでエラーが発生したため、認証情報の取得方法とEntity間のリレーションを見直した。
-- 投稿者本人のみ編集・削除できるようにするため、Controller側とThymeleaf側の両方で権限チェックを行った。
-- UI改善時にテンプレートエラーが発生したため、Thymeleafの式と認証情報の扱いを確認しながら修正した。
+* Spring Security導入後、ログインユーザーと投稿者情報の紐付けでエラーが発生したため、認証情報の取得方法とEntity間のリレーションを見直した。
+* 投稿者本人のみ編集・削除できるようにするため、Controller側とThymeleaf側の両方で権限チェックを行った。
+* UI改善時にテンプレートエラーが発生したため、Thymeleafの式と認証情報の扱いを確認しながら修正した。

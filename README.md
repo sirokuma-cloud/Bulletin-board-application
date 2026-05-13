@@ -46,16 +46,62 @@ It allows users to create, read, update, and delete posts after logging in.
 
 * Convert to REST API
 * Separate frontend (e.g., React)
-* Improve UI/UX
+* Further improve UI/UX based on user feedback
 * Add validation and error handling
 
 * REST APIへの移行
 * フロントエンドの分離（Reactなどの導入）
-* UI/UXの向上・改善
+* ユーザー視点に基づいたUI/UXのさらなる改善
 * バリデーション（入力チェック）およびエラーハンドリングの追加
+
+## UI/UX Improvement　UI/UX改善
+
+In version 1.1, the UI was improved to make the application easier to use and more visually organized.
+A shared CSS file was added, and the layout of the login, registration, post list, and form pages was redesigned.
+
+Version 1.1では、アプリケーションの使いやすさと視認性を高めるためにUI改善を行いました。
+共通CSSファイルを追加し、ログイン画面、ユーザー登録画面、投稿一覧画面、投稿フォームのレイアウトを改善しました。
+
+### Improvements　改善内容
+
+* Added a shared CSS file
+* Improved login and registration page layout
+* Redesigned post list using card-style UI
+* Improved form design for creating and editing posts
+* Fixed template and layout issues after UI changes
+
+* 共通CSSファイルを追加
+* ログイン画面・ユーザー登録画面のレイアウトを改善
+* 投稿一覧をカード型UIに変更
+* 投稿作成・編集フォームのデザインを改善
+* UI変更に伴うテンプレート・レイアウトの不具合を修正
 
 ## Motivation　動機
 
 This project was built to practice backend development, including authentication, database design, and CRUD operations.
 
 このプロジェクトは、認証機能、データベース設計、およびCRUD操作を含むバックエンド開発の習得を目的として作成しました。
+
+## Version History　バージョン履歴
+
+### v1.1 - UI Improvement　UI改善
+
+* Added shared CSS for consistent design
+* Improved screen layout and readability
+* Redesigned post list, login, registration, and form pages
+* Fixed template rendering issues caused by UI updates
+
+* 共通CSSを追加し、画面全体のデザインを統一
+* レイアウトと視認性を改善
+* 投稿一覧、ログイン、ユーザー登録、投稿フォーム画面を改善
+* UI変更時に発生したテンプレート表示エラーを修正
+
+### v1.0 - Initial Release　初期リリース
+
+* Implemented user registration and login
+* Implemented CRUD functionality for posts
+* Added authorization so only authors can edit or delete their own posts
+
+* ユーザー登録・ログイン機能を実装
+* 投稿の作成・閲覧・編集・削除機能を実装
+* 投稿者本人のみ編集・削除できる認可制御を実装
